@@ -13,20 +13,43 @@ public class List {
        return list == null;
     }
 
-    public void add (int data)
+
+    public void add_after_node (int n, int data) //добавление после конкретного узла
     {
-        Node tmp = new Node(data);
-        tmp.next = list;
-        list = tmp;
+        Node p = new Node(data);
+        if (n == 0)
+        {
+            p.next = list;
+            list = p;
+        }
+        else {
+            Node tmp = list;
+            for (int i = 0; i < n - 1; i++) {
+                tmp = tmp.next;
+            }
+            p.next = tmp.next;
+            tmp.next = p;
+        }
     }
 
-    public int delete (int data)
+
+    public void  delete_node (int n) //удаление конкретного элемента
     {
         Node tmp = list;
-        list = list.next;
-        int elem = tmp.data;
-        tmp.next = null;
-        return elem;
+        if(n==1)
+        {
+            list = tmp.next;
+            tmp.next= null;
+        }
+        else {
+            for (int i = 0; i < n - 2; i++) {
+                tmp = tmp.next;
+            }
+            Node tmp2 = tmp.next;
+            tmp.next = tmp2.next;
+            tmp2.next = null;
+        }
+
     }
 
     public void print()
