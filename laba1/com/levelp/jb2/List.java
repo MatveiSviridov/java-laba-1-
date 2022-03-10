@@ -33,11 +33,13 @@ public class List {
     }
 
 
-    public void  delete_node (int n) //удаление конкретного элемента
+    public int delete_node (int n) //удаление конкретного элемента
     {
         Node tmp = list;
+        int res;
         if(n==1)
         {
+            res = list.data;
             list = tmp.next;
             tmp.next= null;
         }
@@ -45,11 +47,24 @@ public class List {
             for (int i = 0; i < n - 2; i++) {
                 tmp = tmp.next;
             }
+            res = tmp.data;
             Node tmp2 = tmp.next;
             tmp.next = tmp2.next;
             tmp2.next = null;
         }
 
+        return res;
+    }
+
+    public int get (int n) //извлечение конкретного элемента
+    {
+        Node tmp = list;
+        for (int i = 0; i < n-1; i++)
+        {
+            tmp = tmp.next;
+        }
+        //int x = tmp.data;
+        return tmp.data;
     }
 
     public void print()

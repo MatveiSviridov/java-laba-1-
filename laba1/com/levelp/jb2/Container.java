@@ -11,6 +11,9 @@ public class Container {
         list.add_after_node(0,4);
         list.print();
         System.out.println("------------");
+
+        System.out.println(list.get(3));
+        System.out.println("------------");
         //list.delete(30);
         list.delete_node(4);
         list.print();
